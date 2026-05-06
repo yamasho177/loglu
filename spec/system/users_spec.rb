@@ -86,7 +86,7 @@ describe 'User', type: :system do
       end
     end
   end
-  
+
   describe 'ログイン機能の検証' do
     # 事前にユーザー作成
     before do
@@ -101,6 +101,10 @@ describe 'User', type: :system do
     context '正常系' do
       it 'ログインに成功し、トップページにリダイレクトする' do
         expect(current_path).to eq('/')
+      end
+      
+      it 'ログイン成功時のフラッシュメッセージを表示する' do
+        expect(page).to have_content('Signed in successfully.')
       end
     end
  
